@@ -141,10 +141,10 @@ Four dedicated **Security Groups** were created, each scoped to a specific tier:
 
 **Why this design:** The tiered subnet model enforces network-level separation. Internet traffic enters through the public subnets and ALB, reaches EC2 instances, which then connect inward to EFS and RDS. The database is completely unreachable from the internet at the network layer — not just by firewall rule, but by routing design.
 
-![VPC Resource Map](screenshots/step1-vpc.png)
-![Subnets](screenshots/step1-subnets.png)
-![Route Tables](screenshots/step1-route-tables.png)
-![Security Groups](screenshots/step1-security-groups.png)
+![VPC Resource Map](project/picture1.png)
+![Subnets](project/picture2.png)
+![Route Tables](project/picture4.png)
+![Security Groups](picture6.png)
 
 ---
 
