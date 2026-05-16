@@ -145,7 +145,7 @@ Four dedicated **Security Groups** were created, each scoped to a specific tier:
 ![Subnets](project/Picture2.jpg)
 ![Route Tables](project/Picture4.jpg)
 ![Route Tables](project/Picture5.jpg)
-![Security Groups](Picture6.jpg)
+![Security Groups](project/Picture6.jpg)
 
 ---
 
@@ -188,7 +188,7 @@ Access to the instance was performed entirely through **AWS Session Manager** �
 
 **Why this design:** Traditional SSH access requires managing key pairs, keeping port 22 open, and trusting the network path. SSM eliminates all three risks. Every session is fully logged to CloudWatch, providing a complete audit trail of all commands run on the server — a requirement in any security-conscious environment.
 
-![SSM Session](screenshots/step3-ssm-session.png)
+![SSM Session](project/Picture8.jpg)
 
 ---
 
@@ -228,9 +228,8 @@ WordPress was verified to load correctly via the EC2 public IP.
 
 **Why this design:** Without a shared file system, each EC2 instance behind a load balancer maintains its own independent `/var/www/html`. Any media upload, plugin installation, or theme change made on instance A would be absent from instance B. EFS makes every instance stateless and identical — the file system is the single source of truth, not the instance.
 
-![EFS File System](screenshots/step4-efs.png)
-![EFS Mount Verification](screenshots/step4-efs-mount.png)
-![WordPress Running](screenshots/step4-wordpress.png)
+![EFS File System](project/Picture9.png)
+![WordPress Running](project/Picture10.png)
 
 ---
 
@@ -257,8 +256,7 @@ A second EC2 instance was launched from this AMI in `ananthu-public-SNb` (us-eas
 
 **Why this design:** The AMI is the foundation of the Auto Scaling Group. By verifying it works in a second AZ before attaching it to the ASG, we confirm the entire architecture is truly cross-AZ redundant — not just on paper.
 
-![AMI Created](screenshots/step5-ami.png)
-![WordPress on Second Instance](screenshots/step5-wordpress-az2.png)
+![AMI Created](project/Picture11.png)
 
 ---
 
@@ -289,8 +287,7 @@ The target group registered 3 healthy instances across both AZs, all showing **H
 
 **Why this design:** The ALB serves as the single entry point for all web traffic. Health checks automatically route around failed instances. ACM-issued certificates renew automatically — there is no manual certificate management, no expiry risk, and no cost for the certificate itself.
 
-![ALB Configuration](screenshots/step6-alb.png)
-![ACM Certificate](screenshots/step6-acm.png)
+![ALB Configuration](project/Picture12.png)
 
 ---
 
@@ -315,7 +312,8 @@ The ASG was confirmed to have successfully launched a new EC2 instance and regis
 
 **Why this design:** The ASG is what separates a manually managed server from a self-healing infrastructure. If the running instance fails an ALB health check, the ASG terminates it and launches a replacement automatically. Under a traffic spike, it can scale out to 2 instances. The infrastructure runs itself.
 
-![ASG Configuration](screenshots/step7-asg.png)
+![ASG Configuration](project/Picture13.png)
+![HEALTH CHECK STAT](project/Picture14.png)
 
 ---
 
@@ -333,8 +331,8 @@ In the Route 53 hosted zone for `ananthu.shop`, a **CNAME record** was created:
 
 WordPress was verified to load correctly at [https://wordpress.ananthu.shop/](https://wordpress.ananthu.shop/) with a valid, browser-trusted HTTPS certificate.
 
-![Route 53 Records](screenshots/step8-route53.png)
-![WordPress Live](screenshots/step8-wordpress-live.png)
+![Route 53 Records](project/Picture15.jpg)
+![WordPress Live](project/Picture16.png)
 
 ---
 
@@ -393,12 +391,11 @@ A **CNAME record** in Route 53 mapped `static.ananthu.shop` → CloudFront distr
 
 **Why this design:** OAC is the modern replacement for Origin Access Identity (OAI). It ensures that even if someone discovers your S3 bucket name, they cannot access any content directly. All traffic must pass through CloudFront — enabling caching, WAF protection, and access logging at the edge.
 
-![S3 Bucket](screenshots/step9-s3.png)
-![CloudFront Distribution](screenshots/step9-cloudfront.png)
-![OAC Configuration](screenshots/step9-oac.png)
-![Route 53 Static](screenshots/step9-route53.png)
-![Static Site Live](screenshots/step9-static-live.png)
-![Access Denied on S3 Direct](screenshots/step9-access-denied.png)
+![S3 Bucket](project/Picture17.png)
+![CloudFront Distribution](project/Picture18.png)
+![OAC Configuration](project/Picture19.jpg)
+![Route 53 Static](project/Picture20.png)
+![Access Denied on S3 Direct](project/Picture21.jpg)
 
 ---
 
