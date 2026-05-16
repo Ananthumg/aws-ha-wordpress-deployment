@@ -143,7 +143,8 @@ Four dedicated **Security Groups** were created, each scoped to a specific tier:
 
 ![VPC Resource Map](project/Picture1.png)
 ![Subnets](project/Picture2.jpg)
-![Route Tables](project/Picture4.jpg)(project/Picture5.jpg)
+![Route Tables](project/Picture4.jpg)
+![Route Tables](project/Picture5.jpg)
 ![Security Groups](Picture6.jpg)
 
 ---
