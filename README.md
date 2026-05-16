@@ -399,37 +399,6 @@ A **CNAME record** in Route 53 mapped `static.ananthu.shop` → CloudFront distr
 
 ---
 
-## 📁 Repository Structure
-
-```
-aws-ha-wordpress-deployment/
-│
-├── README.md                  ← This file
-│
-└── screenshots/               ← Upload your project screenshots here
-    ├── step1-vpc.png
-    ├── step1-subnets.png
-    ├── step1-route-tables.png
-    ├── step1-security-groups.png
-    ├── step2-rds.png
-    ├── step3-ssm-session.png
-    ├── step4-efs.png
-    ├── step4-efs-mount.png
-    ├── step4-wordpress.png
-    ├── step5-ami.png
-    ├── step5-wordpress-az2.png
-    ├── step6-alb.png
-    ├── step6-acm.png
-    ├── step7-asg.png
-    ├── step8-route53.png
-    ├── step8-wordpress-live.png
-    ├── step9-s3.png
-    ├── step9-cloudfront.png
-    ├── step9-oac.png
-    ├── step9-route53.png
-    ├── step9-static-live.png
-    └── step9-access-denied.png
-```
 
 ---
 
