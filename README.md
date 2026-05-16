@@ -404,8 +404,8 @@ A **CNAME record** in Route 53 mapped `static.ananthu.shop` → CloudFront distr
 
 <div align="center">
 
-**Built by [Ananthakrishnan M G](https://github.com/Ananthumg)**
+**Built by [Ananthakrishnan M G](https://github.com/Ananthumg?tab=overview)**
 
-[![Back to Profile](https://img.shields.io/badge/←%20Back%20to%20Profile-0A66C2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ananthumg)
+[![Back to Profile](https://img.shields.io/badge/←%20Back%20to%20Profile-0A66C2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ananthumg?tab=repositories)
 
 </div>
